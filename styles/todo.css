@@ -1,0 +1,137 @@
+@import url(main.css);
+
+.wrapper {
+    width: 700px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#todo-input {
+    padding: 12px 20px;
+    width: 100%;
+    background: none;
+    border: 2px solid var(--secondary-color);
+    border-radius: 120px;
+    font: inherit;
+    color: var(--text-color);
+    caret-color: var(--accent-color);
+}
+
+#todo-input:focus {
+    outline: none;
+}
+
+#todo-form {
+    position: relative;
+}
+
+#add-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--accent-color);
+    height: 100%;
+    padding-inline: 30px;
+    border: none;
+    border-radius: 120px;
+    font: inherit;
+    font-weight: 600;
+    color: var(--background);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* #add-button:hover {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+} */
+
+.todo-list__todo {
+    margin-bottom: 10px;
+    padding-inline: 16px;
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.todo-list__text {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.todo-list__delete-button {
+    padding: 3px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.todo-list__delete-button svg {
+    transition: 0.2s ease;
+}
+
+/* .todo-list__delete-button:hover svg {
+    fill: var(--accent-color);
+} */
+
+.todo-list__custom-checkbox{
+    border: 2px solid var(--secondary-color);
+    border-radius: 50%;
+    min-height: 20px;
+    min-width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.todo-list__custom-checkbox svg {
+    transition: 0.2s ease;
+}
+
+input[type="checkbox"]:checked ~ .todo-list__custom-checkbox {
+    background-color: var(--secondary-color);
+}
+
+input[type="checkbox"]:checked ~ .todo-list__custom-checkbox svg {
+    fill: var(--accent-color);
+}
+
+input[type="checkbox"]:checked ~ .todo-list__text {
+    text-decoration: line-through;
+    color: var(--secondary-color);
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+@media (hover: hover) {
+    .todo-list__delete-button:hover svg {
+        fill: var(--accent-color);
+    }
+
+    #add-button:hover {
+        background-color: var(--secondary-color);
+        color: var(--accent-color);
+    }
+}
+
+@media (hover: none) {
+    .todo-list__delete-button:active svg {
+        fill: var(--accent-color);
+    }
+
+    #add-button:active {
+        background-color: var(--secondary-color);
+        color: var(--accent-color);
+    }
+}
